@@ -21,6 +21,11 @@ function update_ip() {
     terraform output -raw ec2 > ../ansible/hosts
 }
 
+function install_apps() {
+    cd ../ansible
+    ansible-playbook main.yml
+}
 prepare_vm
 create_ec2
 update_ip
+install_apps
